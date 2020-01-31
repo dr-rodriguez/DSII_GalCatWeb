@@ -29,8 +29,11 @@ def app_home():
 
 @app_portal.route('/summary/<string:name>')
 def app_summary(name):
-    db = Database(conn_string='localhost', mongo_db_name='GalaxyCat', collection_name='galaxies',
-                  references_file='static/references.json')
+    db_name = os.environ.get('CATALOG_NAME')
+    mongo_client = os.environ.get('SERVER_MONGO')
+
+    db = Database(conn_string=mongo_client, mongo_db_name=db_name, collection_name='galaxies',
+                  references_file='app/static/references.json')
 
     name = urllib.parse.unquote_plus(name)
 
