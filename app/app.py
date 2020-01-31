@@ -16,7 +16,7 @@ def app_home():
     mongo_client = os.environ.get('SERVER_MONGO')
 
     db = Database(conn_string=mongo_client, mongo_db_name=db_name, collection_name='galaxies',
-                  references_file='static/references.json')
+                  references_file='app/static/references.json')
 
     temp = db.query_table({})
     df = temp.to_pandas()
