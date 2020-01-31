@@ -1,0 +1,19 @@
+<!doctype html>
+<title>The Local Group Galaxy Database</title>
+<link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
+<script src="{{ url_for('static', filename='jquery-1.12.0.min.js')}} "></script>
+
+<header>
+    <h1>The Local Group Galaxy Database</h1>
+</header>
+
+<div class=page>
+    <a href="../">Back to table</a>
+
+    <br>
+
+    <pre>
+        {{ json|safe }}
+    </pre>
+
+</div>

@@ -1,0 +1,29 @@
+<!doctype html>
+<title>The Local Group Galaxy Database</title>
+<link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
+<script src="{{ url_for('static', filename='jquery-1.12.0.min.js')}} "></script>
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.11/js/jquery.dataTables.js"></script>
+<script>
+    $(document).ready( function () {
+      $('.dataframe').DataTable( {
+        "pageLength": 20,
+        "paging": false,
+        "scrollY": 500,
+        "columnDefs": [ {
+            "visible": false,
+            "targets": [4]
+        } ]
+      } );
+    } );
+</script>
+
+<header>
+    <h1>The Local Group Galaxy Database</h1>
+</header>
+
+<div class=page>
+    <br>
+
+    {{ table|safe }}
+
+</div>
